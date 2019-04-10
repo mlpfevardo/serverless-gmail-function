@@ -1,0 +1,18 @@
+{
+  "name": "serverless-gmail-function",
+  "version": "1.0.0",
+  "description": "Serverless function that sends an email via gmail.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "serverless-google-cloudfunctions": "*"
+  },
+  "dependencies": {
+    "nodemailer": "^6.0.0",
+    "sendmail": "^1.4.1",
+    "twilio": "^3.30.0"
+  }
+}
