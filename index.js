@@ -2,13 +2,8 @@
 
 exports.emailSender = (request, response) => {
 
-  //const { from, to, subject, textData } = request.body;
   console.log(request.body);
   let textData = request.body.text;
-  // console.log(`from = ${from}`);
-  // console.log(`to = ${to}`);
-  // console.log(`subject  = ${subject}`);
-  // console.log(`textData = ${textData}`);
 
   var nodemailer = require('nodemailer');
 
