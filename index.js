@@ -20,9 +20,9 @@ exports.emailSender = (request, response) => {
   });
 
   var mailOptions = {
-    from: 'SLHipulan@gmail.com',
-    to: 'Accio26eleven@gmail.com',
-    subject: 'TA DA',
+    from: '<your-email@gmail.com>',
+    to: '<reciever-email@gmail.com>',
+    subject: '<subject here>',
     text: textData,
     auth: {
       user: process.env.GMAIL_ACCOUNT
