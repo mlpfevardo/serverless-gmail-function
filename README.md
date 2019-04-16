@@ -18,8 +18,9 @@ install node js from https://nodejs.org/en/download/
  2. Create credentials > OAuth client ID 
  3. Select web application, enter the following URI's under  Authorized redirect URI's: 
 
-	https://developers.google.com/oauthplayground
-	https://developers.google.com/oauthplayground/
+	* https://developers.google.com/oauthplayground
+	* https://developers.google.com/oauthplayground/
+    
  4. Create
  5. Copy Client ID and Client Secret
 
