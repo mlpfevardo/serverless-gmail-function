@@ -24,11 +24,11 @@ install node js from https://nodejs.org/en/download/
  5. Copy Client ID and Client Secret
 
 **Obtain your Refresh token**
- 6. Go to https://developers.google.com/oauthplayground/
- 7. Open settings (upper right hand corner) 
- 8. Check Use your own OAuth credentials and enter the client ID and  Client secret obtained before
- 9. Click on 'gmail' or enter mail.google.com in the textbox, and click authorize APIs. 
- 10. Click 'Exchange authorization code for tokens' and obtain your   refresh token and access token
+ 1. Go to https://developers.google.com/oauthplayground/
+ 2. Open settings (upper right hand corner) 
+ 3. Check Use your own OAuth credentials and enter the client ID and  Client secret obtained before
+ 4. Click on 'gmail' or enter mail.google.com in the textbox, and click authorize APIs. 
+ 5. Click 'Exchange authorization code for tokens' and obtain your   refresh token and access token
 
 ## Notes
  * input your necessary values into the environment.yml file
