@@ -1,0 +1,54 @@
+steps:
+ - name: 'gcr.io/cloud-builders/gsutil'
+   args: ['cp', 'package.json', 'package.json']
+ - name: 'gcr.io/cloud-builders/npm'
+   args: ['install']
+ - name: 'gcr.io/cloud-builders/gcloud'
+   args: 
+   - kms
+   - decrypt
+   - --ciphertext-file=.env
+   - --plaintext-file=.env.enc
+   - --location=global
+   - --keyring=cloudbuild-env
+   - --key=CLIENT_SECRET
+ - name: 'gcr.io/cloud-builders/gsutil'
+   args: ['cp', '${_EXAMPLE}', '.example.environment.yml']
+   id: 'setenv'
+ - name: 'gcr.io/cloud-builders/gcloud'
+   waitFor: ['setenv']
+   args:
+   - functions
+   - deploy
+   - emailSender
+   - --runtime=nodejs8
+   - --trigger-http
+   - --env-vars-file=.example.environment.yml
+ - name: 'gcr.io/cloud-builders/gcloud'
+   waitFor: ['setenv']
+   args:
+   - functions
+   - deploy
+   - http
+   - --runtime=nodejs8
+   - --trigger-http
+   - --env-vars-file=.example.environment.yml
+   - emailSender
+   - --runtime=nodejs8
+   - --trigger-http
+   - --env-vars-file=.example.environment.yml
+ - name: 'gcr.io/cloud-builders/gcloud'
+   waitFor: ['setenv']
+   args:
+   - functions
+   - deploy
+   - http
+   - --runtime=nodejs8
+   - --trigger-http
+   - --env-vars-file=example.environment.yml
+ - name: 'gcr.io/cloud-builders/gcloud'
+   args:
+   - app
+   - deploy
+   - --no-promote
+
