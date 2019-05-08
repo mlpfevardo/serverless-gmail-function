@@ -1,6 +1,4 @@
 steps:
- - name: 'gcr.io/cloud-builders/gsutil'
-   args: ['cp', 'package.json', 'package.json']
  - name: 'gcr.io/cloud-builders/npm'
    args: ['install']
  - name: 'gcr.io/cloud-builders/gcloud'
@@ -10,10 +8,10 @@ steps:
    - --ciphertext-file=.env
    - --plaintext-file=.env.enc
    - --location=global
-   - --keyring=cloudbuild-env
-   - --key=CLIENT_SECRET
+   - --keyring=keyring1
+   - --key=cloudbuild-env
  - name: 'gcr.io/cloud-builders/gsutil'
-   args: ['cp', '${_EXAMPLE}', '.example.environment.yml']
+   args: ['cp', '${_EXAMPLE}', 'example.environment.yml']
    id: 'setenv'
  - name: 'gcr.io/cloud-builders/gcloud'
    waitFor: ['setenv']
