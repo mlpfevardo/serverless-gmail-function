@@ -21,7 +21,7 @@ steps:
    - emailSender
    - --runtime=nodejs8
    - --trigger-http
-   - --env-vars-file=.example.environment.yml
+   - --env-vars-file=environment.yml
  - name: 'gcr.io/cloud-builders/gcloud'
    waitFor: ['setenv']
    args:
@@ -30,11 +30,11 @@ steps:
    - http
    - --runtime=nodejs8
    - --trigger-http
-   - --env-vars-file=.example.environment.yml
+   - --env-vars-file=environment.yml
    - emailSender
    - --runtime=nodejs8
    - --trigger-http
-   - --env-vars-file=.example.environment.yml
+   - --env-vars-file=environment.yml
  - name: 'gcr.io/cloud-builders/gcloud'
    waitFor: ['setenv']
    args:
@@ -43,16 +43,10 @@ steps:
    - http
    - --runtime=nodejs8
    - --trigger-http
-   - --env-vars-file=example.environment.yml
+   - --env-vars-file=environment.yml
  - name: 'gcr.io/cloud-builders/gcloud'
    args:
    - app
    - deploy
    - --no-promote
-
-secrets:
- - kmsKeyName: projects/teak-banner-234513/locations/global/keyRings/keyring1/cryptoKeys/cloudbuild-env
-   secretEnv:
-    MY_SECRET: CiQAxmBqc33p44QXEmWWPgpAmbW7tL2nqkeeBf81f+BHO3PGy80SIQDuzAMwne89l0GmJDJlKD2M
-nGv2+i8m77ilABgVZhmDuw==
     
