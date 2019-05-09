@@ -5,8 +5,8 @@ steps:
    args: 
    - kms
    - decrypt
-   - --ciphertext-file=.env
-   - --plaintext-file=.env.enc
+   - --ciphertext-file=.env.enc
+   - --plaintext-file=.env
    - --location=global
    - --keyring=keyring1
    - --key=cloudbuild-env
