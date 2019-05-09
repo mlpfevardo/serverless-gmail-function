@@ -11,7 +11,7 @@ steps:
    - --keyring=keyring1
    - --key=cloudbuild-env
  - name: 'gcr.io/cloud-builders/gsutil'
-   args: ['cp', '${_EXAMPLE}', 'example.environment.yml']
+   args: ['cp', '.env', 'environment.yml']
    id: 'setenv'
  - name: 'gcr.io/cloud-builders/gcloud'
    waitFor: ['setenv']
@@ -50,3 +50,9 @@ steps:
    - deploy
    - --no-promote
 
+secrets:
+ - kmsKeyName: projects/teak-banner-234513/locations/global/keyRings/keyring1/cryptoKeys/cloudbuild-env
+   secretEnv:
+    MY_SECRET: CiQAxmBqc33p44QXEmWWPgpAmbW7tL2nqkeeBf81f+BHO3PGy80SIQDuzAMwne89l0GmJDJlKD2M
+nGv2+i8m77ilABgVZhmDuw==
+    
