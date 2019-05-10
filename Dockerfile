@@ -2,11 +2,11 @@
 FROM alpine
 
 # Create app directory
-WORKDIR /serverless_app
+WORKDIR /workspace/
 
 # Install app dependencies
 
-COPY . /serverless_app
+COPY . /workspace/
 
 # Install any needed packages 
 
