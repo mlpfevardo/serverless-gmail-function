@@ -1,5 +1,5 @@
 # Docker image
-FROM ubuntu
+FROM ubuntu:16.04
 
 RUN apt-get q update && apt-get install -qqy curl
 # Create app directory
