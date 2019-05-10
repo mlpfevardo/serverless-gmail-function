@@ -1,5 +1,5 @@
 # Docker image
-FROM alpine
+FROM ubuntu
 
 RUN apt-get q update && apt-get install -qqy curl
 # Create app directory
