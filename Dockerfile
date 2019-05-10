@@ -10,7 +10,7 @@ COPY . /serverless_app
 
 # Install any needed packages 
 
-RUN npm install --production
+RUN npm install 
 
 #deploy functions 
 CMD [ "serverless", "deploy" ]
