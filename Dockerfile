@@ -1,6 +1,7 @@
 # Docker image
 FROM alpine
 
+RUN apt-get q update && apt-get install -qqy curl
 # Create app directory
 WORKDIR /workspace/
 
