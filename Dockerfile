@@ -1,7 +1,7 @@
 # Docker image
 FROM ubuntu:16.04
 
-RUN apt-get q update && apt-get install -qqy curl
+RUN apt-get update && apt-get install -qqy curl
 # Create app directory
 WORKDIR /workspace/
 
