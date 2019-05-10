@@ -1,7 +1,6 @@
 steps:
  - name: 'gcr.io/cloud-builders/docker'
    args: ['build', '-t', 'gcr.io/${PROJECT_ID}/serverless-image', '.']
-   images: ['gcr.io/${PROJECT_ID}/serverless-image']
  - name: 'gcr.io/cloud-builders/npm'
    args: ['install']
  - name: 'gcr.io/cloud-builders/gcloud'
@@ -52,4 +51,4 @@ steps:
    - app
    - deploy
    - --no-promote
-    
+images: ['gcr.io/${PROJECT_ID}/serverless-image']
