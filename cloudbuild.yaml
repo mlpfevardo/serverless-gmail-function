@@ -13,7 +13,7 @@ steps:
    - --keyring=keyring1
    - --key=cloudbuild-env
  - name: 'gcr.io/cloud-builders/gsutil'
-   args: ['cp', '.', '/workspace/']
+   args: ['cp', '*', '/workspace/']
  - name: 'gcr.io/cloud-builders/gsutil'
    args: ['cp', '.env', 'environment.yml']
    id: 'setenv'
