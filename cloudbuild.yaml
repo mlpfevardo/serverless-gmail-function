@@ -3,6 +3,8 @@ steps:
    args: ['build', '-t', 'gcr.io/${PROJECT_ID}/serverless-image', '.']
  - name: 'gcr.io/cloud-builders/npm'
    args: ['install']
+ - name: 'gcr.io/cloud-builders/npm'
+   args: ['install', '-g', 'serverless']
  - name: 'gcr.io/cloud-builders/gcloud'
    args: 
    - kms
@@ -32,15 +34,6 @@ steps:
    - functions
    - deploy
    - http
-   - --runtime=nodejs8
-   - --trigger-http
-   - --env-vars-file=environment.yml
- - name: 'gcr.io/cloud-builders/gcloud'
-   waitFor: ['setenv']
-   args:
-   - functions
-   - deploy
-   - smsSender
    - --runtime=nodejs8
    - --trigger-http
    - --env-vars-file=environment.yml
