@@ -35,16 +35,12 @@ steps:
    - --runtime=nodejs8
    - --trigger-http
    - --env-vars-file=environment.yml
-   - emailSender
-   - --runtime=nodejs8
-   - --trigger-http
-   - --env-vars-file=environment.yml
  - name: 'gcr.io/cloud-builders/gcloud'
    waitFor: ['setenv']
    args:
    - functions
    - deploy
-   - http
+   - smsSender
    - --runtime=nodejs8
    - --trigger-http
    - --env-vars-file=environment.yml
