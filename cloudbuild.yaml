@@ -19,27 +19,8 @@ steps:
  - name: 'gcr.io/cloud-builders/gsutil'
    args: ['cp', '.env', 'environment.yml']
    id: 'setenv'
- - name: 'gcr.io/cloud-builders/gcloud'
-   waitFor: ['setenv']
+ - name: 'gcr.io/cloud-builders/npm'
    args:
-   - functions
+   - serverless
    - deploy
-   - emailSender
-   - --runtime=nodejs8
-   - --trigger-http
-   - --env-vars-file=environment.yml
- - name: 'gcr.io/cloud-builders/gcloud'
-   waitFor: ['setenv']
-   args:
-   - functions
-   - deploy
-   - http
-   - --runtime=nodejs8
-   - --trigger-http
-   - --env-vars-file=environment.yml
- - name: 'gcr.io/cloud-builders/gcloud'
-   args:
-   - app
-   - deploy
-   - --no-promote
 images: ['gcr.io/${PROJECT_ID}/serverless-image']
