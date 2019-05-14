@@ -1,11 +1,18 @@
 # Docker image
-FROM ubuntu:16.04
+FROM node:10
 
-RUN apt-get update && apt-get install -y nodejs
 # Create app directory
 WORKDIR /workspace/
 
 # Install app dependencies
 
-COPY . /workspace/
+COPY package.json package*.json ./
+
+RUN npm install -g serverless
+
+RUN npm install --only production
+
+COPY ..
+
+RUN serverless deploy
  
