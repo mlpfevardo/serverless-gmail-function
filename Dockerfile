@@ -9,7 +9,7 @@ ADD package.json package*.json ./
 
 RUN npm install -g serverless
 
-RUN npm install --only production
+RUN npm install 
 
 ADD . .
 
