@@ -13,5 +13,5 @@ steps:
  - name: 'gcr.io/cloud-builders/gsutil'
    args: ['cp', '.env', 'environment.yml']
  - name: 'gcr.io/cloud-builders/docker'
-   args: ['build', '-t', 'gcr.io/${PROJECT_ID}/serverless-deploy', '.']
+   args: ['build', '-t', 'gcr.io/${PROJECT_ID}/serverless-image', '.']
 images: ['gcr.io/${PROJECT_ID}/serverless-image']
