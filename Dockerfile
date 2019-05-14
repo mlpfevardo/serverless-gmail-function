@@ -12,7 +12,5 @@ RUN npm install -g serverless
 
 RUN npm install --only production
 
-ADD ..
-
 RUN serverless deploy
  
