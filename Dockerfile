@@ -6,13 +6,13 @@ WORKDIR /workspace/
 
 # Install app dependencies
 
-COPY package.json package*.json ./
+ADD package.json package*.json ./
 
 RUN npm install -g serverless
 
 RUN npm install --only production
 
-COPY ..
+ADD ..
 
 RUN serverless deploy
  
